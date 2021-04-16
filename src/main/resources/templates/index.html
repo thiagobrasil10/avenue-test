@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Upload</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+	<section class="my-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 mx-auto">
+					<h2>Insira o arquivo CSV</h2>
+					<p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+					<form method="post" th:action="@{/upload}" enctype="multipart/form-data">
+						<div class="form-group">
+							<input type="file" name="file" class="form-control-file">
+						</div>
+						<button type="submit" class="btn btn-primary">Enviar Arquivo</button>
+					</form>
+					<div th:if="${return ne null}">
+						<a th:href="@{|/download|}" download="arquivo_retorno.csv"><span>Download do
+								arquivo retorno</span></a>								
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+
+</html>
